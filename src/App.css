@@ -1,0 +1,49 @@
+.btn_page1{
+    width: 100px;
+    height: 60px;
+    position: relative;
+    background-color: white;
+    border-color: blue blue blue blue;
+    left: 116px;
+    top: 174px;
+}
+
+.btn_page2{
+    width: 100px;
+    height: 60px;
+    position: relative;
+    background-color: white;
+    border-color: blue blue blue blue;
+    left: 433px;
+    top: 174px;
+}
+
+.btn_page1_change{
+    width: 100px;
+    height: 60px;
+    position: relative;
+    background-color: blue;
+    color: white;
+    border-color: blue blue blue blue;
+    left: 116px;
+    top: 174px;
+}
+
+.btn_page2_change{
+    width: 100px;
+    height: 60px;
+    position: relative;
+    background-color: blue;
+    color: white;
+    border-color: blue blue blue blue;
+    left: 433px;
+    top: 174px;
+}
+
+.inp1{
+    position: relative; left: -107px; top: 400px;
+}
+
+.inp2{
+    position: relative; left: 183px; top: 400px;
+}

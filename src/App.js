@@ -20,7 +20,9 @@ class App extends React.Component{
         super(props);
         this.state = {
             data:undefined,
-            number_of_tabs_each_time:undefined
+            number_of_tabs_each_time:undefined,
+            time:undefined,
+            hidden:true
         };
         this.readData = this.readData.bind(this);
         this.open_according_to_column = this.open_according_to_column.bind(this);
@@ -55,6 +57,14 @@ class App extends React.Component{
             windows[i].close();
         }
     }
+    onChange_tasks(e)
+    {
+        this.setState({number_of_tabs_each_time:e.target.value});
+    }
+    onChange_time(e)
+    {
+        this.setState({time:parseInt(e.target.value)});
+    }
     readData(e)
     {
         let rABS = true; // true: readAsBinaryString ; false: readAsArrayBuffer
@@ -76,8 +86,20 @@ class App extends React.Component{
     render(){
         return(
             <div>
+            {/* upload file */}
             <input type = "file" onChange = {this.readData}></input>
-            <button onClick = {this.close_window}></button>
+
+            {/* Two option */}
+            <button onClick = {this.Change_page1} className = "btn_page1">Open according to column</button>
+            <button onClick = {this.Change_page2} className = "btn_page2">Open according to row</button>
+
+            {/* Two parameter to open */}
+            <input type = "text" onChange = {this.onChange_tasks} className = "inp1"></input>
+            <input type = "number" onChange = {this.onChange_time} className = "inp2"></input>
+
+            {/* Button to open and close window*/}
+            <button>Open</button>
+            <button onClick = {this.close_window}>close</button>
             </div>
         );
     }
