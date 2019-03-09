@@ -4,6 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "is-url": "^1.2.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "^2.1.5",
