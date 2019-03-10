@@ -1,49 +1,69 @@
 .btn_page1{
     width: 100px;
     height: 60px;
-    position: relative;
+    position: fixed;
     background-color: white;
     border-color: blue blue blue blue;
-    left: 116px;
+    left: 400px;
     top: 174px;
 }
 
 .btn_page2{
     width: 100px;
     height: 60px;
-    position: relative;
+    position: fixed;
     background-color: white;
     border-color: blue blue blue blue;
-    left: 433px;
+    left: 800px;
     top: 174px;
 }
 
 .btn_page1_change{
     width: 100px;
     height: 60px;
-    position: relative;
+    position: fixed;
     background-color: blue;
     color: white;
     border-color: blue blue blue blue;
-    left: 116px;
+    left: 400px;
     top: 174px;
 }
 
 .btn_page2_change{
     width: 100px;
     height: 60px;
-    position: relative;
+    position: fixed;
     background-color: blue;
     color: white;
     border-color: blue blue blue blue;
-    left: 433px;
+    left: 800px;
     top: 174px;
 }
 
-.inp1{
-    position: relative; left: -107px; top: 400px;
+.div1{
+    position: fixed;
+    left: 800px;
+    top: 300px;
 }
-
+.div2{
+    position: fixed;
+    left: 400px;
+    top: 300px;
+}
+.div3{
+    position: fixed;
+    left:100px;
+    top: 230px;
+}
+.inp1{
+    width: 200px;
+}
 .inp2{
-    position: relative; left: 183px; top: 400px;
+    width: 200px;
+}
+.inp3{
+    position: relative; left: -45px; top: 400px;
+}
+.p1{
+    width: 300px;
 }
