@@ -55,10 +55,7 @@
     left:100px;
     top: 230px;
 }
-.inp1{
-    width: 200px;
-}
-.inp2{
+.inp{
     width: 200px;
 }
 .inp3{
@@ -66,4 +63,31 @@
 }
 .p1{
     width: 300px;
+}
+.not_display{
+  position: fixed;
+  opacity: 0;
+  top: 10px;
+  left: 600px;
+  width: 100px;
+  height: 60px;
+}
+.choose_file{
+    position: fixed;
+    top: 10px;
+    left: 600px;
+    width: 100px;
+    height: 60px;
+}
+.open
+{
+    position: fixed;
+    top: 500px;
+    left: 800px;
+}
+.close
+{
+    position: fixed;
+    top: 500px;
+    left: 400px;
 }

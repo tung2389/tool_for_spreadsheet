@@ -26,6 +26,8 @@ class App extends React.Component{
             time:undefined,
             hidden:true,
             row_or_column:undefined,
+            btn1: "btn_page1_change", //state to change the css of button 1
+            btn2: "btn_page2",        //state to change the css of button 2
             status_of_option:0
         };
         this.readData = this.readData.bind(this);
@@ -37,16 +39,26 @@ class App extends React.Component{
         this.open_window = this.open_window.bind(this);
         this.IsEnough = this.IsEnough.bind(this);
         this.input_of_option = this.input_of_option.bind(this);
+        this.Change_page1 = this.Change_page1.bind(this);
+        this.Change_page2 = this.Change_page2.bind(this);
+        this.close_window = this.close_window.bind(this);
     }
     IsEnough()
     {
-        if(this.state.number_of_tabs_each_time && this.state.time && this.state.row_or_column)
+        if(this.state.number_of_tabs_each_time && this.state.time && this.state.row_or_column && this.state.data)
         {
             return true;
         }
         else
         {
-            return false;
+            if(!this.state.data)
+            {
+                alert("You have to upload the spreadsheet first");
+            }
+            else
+            {
+                alert("Missing data from inputs");
+            }
         }
     }
     componentDidMount(){
@@ -65,11 +77,11 @@ class App extends React.Component{
     {
         let data = this.state.data;
         let specific_row = data[num-1];
-        let cnt = 0;
+        let cnt = -1;
         // Loop through all properties of specific_row object
         for(let key in specific_row){
-            cnt++;
             // Throw out the key that doesn't belong to object and the key outside the range
+            cnt++;
             if (!specific_row.hasOwnProperty(key) || cnt < start || cnt > endd) continue; 
             process_url(specific_row[key]);
         }
@@ -84,26 +96,30 @@ class App extends React.Component{
             //Caculate the range
             let start = num_time * num_tabs - num_tabs;
             let endd = num_time * num_tabs - 1;
-            if(this.status_of_option === 0)
+            if(this.state.status_of_option === 0)
             {
-                this.open_according_to_column(main_data,start,endd);
+                console.log(main_data);
+                this.open_according_to_column(main_data.toUpperCase() ,start,endd);
             }
             else
             {
+                console.log(main_data)
                 this.open_according_to_row(parseInt(main_data),start,endd);
             }
-        }
-        else
-        {
-            alert("Missing data from inputs");
         }
     }
     close_window()
     {
-        for(let i=0;i<windows.length;i++)
+        let num_tabs = this.state.number_of_tabs_each_time;
+        for(let i=windows.length-1;i>=windows.length-num_tabs;i--)
         {
+            if(i>=0)
+            {
             windows[i].close();
+            windows[i].pop();
+            }
         }
+        console.log(windows);
     }
     onChange_tasks(e)
     {
@@ -131,7 +147,6 @@ class App extends React.Component{
           let json_file = XLSX.utils.sheet_to_json(workbook.Sheets[workbook_name],{header:"A"});
           await this_class.setState({data:json_file});
           alert("The file has been loaded successfully");
-          this_class.open_according_to_row(2);
         };
         if(rABS) reader.readAsBinaryString(f); else reader.readAsArrayBuffer(f);
     }
@@ -148,32 +163,49 @@ class App extends React.Component{
         return(
             <div className = "div3">
                 <p className = "p1">Enter the number of row you want to choose. Example: 1</p>
-                <TextField label = "number of row"> onChange = {this.onChange_row_or_column}</TextField>
+                <TextField type = "number" label = "Number of row" onChange = {this.onChange_row_or_column}></TextField>
             </div>
         );
+    }
+    Change_page1()
+    {
+        if(this.state.status_of_option === 1)
+        {
+            this.setState({btn1:"btn_page1_change",btn2:"btn_page2",status_of_option:0});
+        }
+    }
+    Change_page2()
+    {
+        if(this.state.status_of_option === 0)
+        {
+            this.setState({btn1:"btn_page1","btn2":"btn_page2_change",status_of_option:1});
+        }
     }
     render(){
         return(
             <div>
             {/* upload file */}
-            <input type = "file" onChange = {this.readData}></input>
+            <Button color = "primary" variant = "contained" className = "choose_file">
+            UPLOAD FILE
+            <input type = "file" onChange = {this.readData} className = "not_display"></input>
+            </Button>
 
             {/* Two option */}
-            <button onClick = {this.Change_page1} className = "btn_page1">Open according to column</button>
-            <button onClick = {this.Change_page2} className = "btn_page2">Open according to row</button>
+            <button onClick = {this.Change_page1} className = {this.state.btn1}>Open according to column</button>
+            <button onClick = {this.Change_page2} className = {this.state.btn2}>Open according to row</button>
 
             {/* Two parameter to open */}
             {this.input_of_option()}
-            <div className = "div1">
-                <TextField type = "number" onChange = {this.onChange_tasks} label = "Number of tabs each time" className = "inp1"></TextField>
-            </div>
             <div className = "div2">
-                <TextField type = "number" onChange = {this.onChange_time} label = "Number of time" className = "inp2"></TextField>
+                <TextField type = "number" onChange = {this.onChange_tasks} label = "Number of tabs each time" className = "inp"></TextField>
+            </div>
+            <div className = "div1">
+                <TextField type = "number" onChange = {this.onChange_time} label = "Number of time" className = "inp"></TextField>
             </div>
 
             {/* Button to open and close window*/}
-            <button>Open</button>
-            <button onClick = {this.close_window}>close</button>
+            <Button className = "open" color = "secondary" variant = "contained" onClick = {this.open_window}>Open</Button>
+            <Button className = "close" color = "secondary" variant = "contained" onClick = {this.close_window}>close</Button>
             </div>
         );
     }
