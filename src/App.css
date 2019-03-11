@@ -17,7 +17,20 @@
     left: 800px;
     top: 174px;
 }
-
+.btn_page1:hover{
+color: #ffffff !important;
+background: #f6b93b;
+border-color: #f6b93b !important;
+transition: all 0.4s ease 0s;
+border: none;
+}
+.btn_page2:hover{
+color: #ffffff !important;
+background: #f6b93b;
+border-color: #f6b93b !important;
+transition: all 0.4s ease 0s;
+border: none;
+}
 .btn_page1_change{
     width: 100px;
     height: 60px;
@@ -56,7 +69,7 @@
     top: 230px;
 }
 .inp{
-    width: 200px;
+    width: 300px;
 }
 .inp3{
     position: relative; left: -45px; top: 400px;
@@ -82,12 +95,17 @@
 .open
 {
     position: fixed;
-    top: 500px;
+    top: 450px;
     left: 800px;
 }
 .close
 {
     position: fixed;
-    top: 500px;
+    top: 450px;
+    left: 400px;
+}
+.detail{
+    position: fixed;
+    top: 550px;
     left: 400px;
 }

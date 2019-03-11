@@ -111,15 +111,15 @@ class App extends React.Component{
     close_window()
     {
         let num_tabs = this.state.number_of_tabs_each_time;
-        for(let i=windows.length-1;i>=windows.length-num_tabs;i--)
+        let length = windows.length;
+        for(let i=length-1;i>=length-num_tabs;i--)
         {
             if(i>=0)
             {
             windows[i].close();
-            windows[i].pop();
+            windows.pop();
             }
         }
-        console.log(windows);
     }
     onChange_tasks(e)
     {
@@ -185,6 +185,7 @@ class App extends React.Component{
         return(
             <div>
             {/* upload file */}
+            <p className = "detail">A tool to open links in spreadsheet faster - Created by <a href = "https://www.facebook.com/profile.php?id=100006826129122"><font color = "aqua">Lưu Khánh Tùng</font></a> from HSGS</p>
             <Button color = "primary" variant = "contained" className = "choose_file">
             UPLOAD FILE
             <input type = "file" onChange = {this.readData} className = "not_display"></input>
@@ -200,7 +201,7 @@ class App extends React.Component{
                 <TextField type = "number" onChange = {this.onChange_tasks} label = "Number of tabs each time" className = "inp"></TextField>
             </div>
             <div className = "div1">
-                <TextField type = "number" onChange = {this.onChange_time} label = "Number of time" className = "inp"></TextField>
+                <TextField type = "number" onChange = {this.onChange_time} label = "Number indicating the Nth sub_task" className = "inp"></TextField>
             </div>
 
             {/* Button to open and close window*/}
