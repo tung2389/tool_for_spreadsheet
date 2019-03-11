@@ -1,3 +1,5 @@
+IMPORTANT NOTE: in order to make the tool works properly, if you see the pop-up blocked in the top left of your browser when you click the open button, please allow this permission.
+
 This is a tool to help you open many urls in your spreadsheet faster
 
 - First, upload your spreadsheet by clicking the "UPLOAD FILE" button.
