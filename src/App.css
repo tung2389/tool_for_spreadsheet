@@ -104,8 +104,13 @@ border: none;
     top: 450px;
     left: 400px;
 }
-.detail{
+.detail1{
     position: fixed;
     top: 550px;
     left: 400px;
+}
+.detail2{
+    position: fixed;
+    top: 10px;
+    left: 1000px;
 }

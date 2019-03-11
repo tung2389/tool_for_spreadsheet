@@ -185,7 +185,6 @@ class App extends React.Component{
         return(
             <div>
             {/* upload file */}
-            <p className = "detail">A tool to open links in spreadsheet faster - Created by <a href = "https://www.facebook.com/profile.php?id=100006826129122"><font color = "aqua">Lưu Khánh Tùng</font></a> from HSGS</p>
             <Button color = "primary" variant = "contained" className = "choose_file">
             UPLOAD FILE
             <input type = "file" onChange = {this.readData} className = "not_display"></input>
@@ -207,6 +206,10 @@ class App extends React.Component{
             {/* Button to open and close window*/}
             <Button className = "open" color = "secondary" variant = "contained" onClick = {this.open_window}>Open</Button>
             <Button className = "close" color = "secondary" variant = "contained" onClick = {this.close_window}>close</Button>
+
+            {/*detail*/}
+            <p className = "detail1">A tool to open links in spreadsheet faster - Created by <a href = "https://www.facebook.com/profile.php?id=100006826129122"><font color = "aqua">Lưu Khánh Tùng</font></a> from HSGS</p>
+            <a className = "detail2" rel="noopener noreferrer" href = "https://github.com/tung2389/tool_for_spreadsheet/blob/master/README.md" target = "_blank">Guides</a>
             </div>
         );
     }
