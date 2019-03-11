@@ -1,8 +1,8 @@
-IMPORTANT NOTE: in order to make the tool works properly, if you see the pop-up blocked in the top left of your browser when you click the open button, please allow this permission.
+IMPORTANT NOTE: in order to make the tool works properly, if you see the pop-up blocked in the top left of your browser when you click the open button, please allow this permission. 
 
 This is a tool to help you open many urls in your spreadsheet faster
 
-- First, upload your spreadsheet by clicking the "UPLOAD FILE" button.
+- First, upload your spreadsheet by clicking the "UPLOAD FILE" button. If your database is in google spreadsheet, open your google spreadsheet, then download it by choosing File => download as => Microsoft Excel. Then upload the file normally.
 - Then, you have two options: Opening the urls in a specific column or a specific row.
 - There are three input fields:
   + First input: The label or number indicating the specific column or row respectively.
