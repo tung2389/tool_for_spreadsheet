@@ -61,10 +61,6 @@ class App extends React.Component{
             }
         }
     }
-    componentDidMount(){
-        //console.log(this.state.data);
-    }
-
     open_according_to_column(label,start,endd)
     {
         let data = this.state.data;
@@ -98,12 +94,10 @@ class App extends React.Component{
             let endd = num_time * num_tabs - 1;
             if(this.state.status_of_option === 0)
             {
-                console.log(main_data);
                 this.open_according_to_column(main_data.toUpperCase() ,start,endd);
             }
             else
             {
-                console.log(main_data)
                 this.open_according_to_row(parseInt(main_data),start,endd);
             }
         }
